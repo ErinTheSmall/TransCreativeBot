@@ -35,7 +35,7 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('>roles'):
+    """if message.content.startswith('>roles'):
         embed = discord.Embed(title="Identity Roles", color=0xfe817f)
         embed.add_field(name="React to this message to add roles", value="\U0001F1E6 <@&699897962431512658>\n\U0001F1E7 <@&699897995600068608>\n\U0001F1E8 <@&699898033013260308>\n\U0001F1E9 <@&699898067859538011>\n\U0001F1EA <@&699898104333205564>\n\U0001F1EB <@&699898136818090084>\n\U0001F1EC <@&699898190178287637>\n\nIf any roles are missing, ping a <@&699812268145115137> and they'll assign them for you", inline=False)
         await message.channel.send(embed=embed)
@@ -58,7 +58,7 @@ async def on_message(message):
         time.sleep(1)
         embed = discord.Embed(title="Misc Roles", color=0xdb7ffe)
         embed.add_field(name="React to this message to add roles", value="\U0001F1E6 <@&711239368504770600>\n\U0001F1E7 <@&711239278956642337>\n\U0001F1E8 <@&711239427158179930>\n\U0001F1E9 <@&733610027432149022>\n\nYou need to have been in the server for a few hours to assign the <@&733610027432149022> role", inline=False)
-        await message.channel.send(embed=embed)
+        await message.channel.send(embed=embed)"""
 
 
 
