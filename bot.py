@@ -35,7 +35,7 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    """if message.content.startswith('>roles'):
+    if message.content.startswith('>roles'):
         embed = discord.Embed(title="Identity Roles", color=0xfe817f)
         embed.add_field(name="React to this message to add roles", value="\U0001F1E6 <@&699897962431512658>\n\U0001F1E7 <@&699897995600068608>\n\U0001F1E8 <@&699898033013260308>\n\U0001F1E9 <@&699898067859538011>\n\U0001F1EA <@&699898104333205564>\n\U0001F1EB <@&699898136818090084>\n\U0001F1EC <@&699898190178287637>\n\nIf any roles are missing, ping a <@&699812268145115137> and they'll assign them for you", inline=False)
         await message.channel.send(embed=embed)
@@ -58,8 +58,29 @@ async def on_message(message):
         time.sleep(1)
         embed = discord.Embed(title="Misc Roles", color=0xdb7ffe)
         embed.add_field(name="React to this message to add roles", value="\U0001F1E6 <@&711239368504770600>\n\U0001F1E7 <@&711239278956642337>\n\U0001F1E8 <@&711239427158179930>\n\U0001F1E9 <@&733610027432149022>\n\nYou need to have been in the server for a few hours to assign the <@&733610027432149022> role", inline=False)
-        await message.channel.send(embed=embed)"""
+
+        await message.channel.send(embed=embed)
+
+    if message.content.startswith('>roles'):
+        embed = discord.Embed(title="Rules", color=0xf1c40f)
+        embed.add_field(name="1️⃣  Respect all members of the server", value="The goal is to keep the place as chill and polite as possible. Use common sense with what you say. The age old saying applies - treat others how you would like to be treated.\n\n", inline=False)
+        embed.add_field(name="2️⃣  Don't be vitriolic", value="This means: keep toxicity out of the server, do not flame users individually or as a group, do not troll (as in posting things just to annoy others), do not harass, and do not make offensive/harsh statements. This includes racist, sexist, and cultural remarks designed to anger and hurt others.\n\n", inline=False)
+        embed.add_field(name="3️⃣  No homophobia, transphobia or bigotry", value="We are welcoming to all of the LGBT community, this means no TERFs or any other radical transphobic/homophobic groups.\n\n", inline=False)
+        embed.add_field(name="4️⃣  No NSFW content", value="This includes suggestive or nude selfies or other pornography. Please message the moderators before posting questionable artwork.\n\n", inline=False)
+        embed.add_field(name="5️⃣  Demonstrate a willingness to learn", value="This is a safe space. Anyone can make a mistake and accidentally say something hurtful or triggering. If you find yourself corrected for making this error, please try to learn from it. This is not a place to tell people that they need to reclaim a pejorative so you can use it, that they should laugh at jokes about them, or that they otherwise just \"shouldn't be so sensitive.\" For lightly moderated LGBT-related discussion, we recommend /r/ainbow. /r/ainbow does not moderate discussion, but the community will expect that you treat them with respect. (From /r/LGBT).\n\n", inline=False)
+        embed.add_field(name="6️⃣  Respect the privacy of others", value="Do not seek personal identifying information which includes names, photos, emails, etc., whether it's your personal info or someone else's. Information like this should not be posted.\n\n", inline=False)
+        embed.add_field(name="7️⃣  Please do not police the gender identities of others", value="This server is a safe space which fully accepts members of all Gender Identities, self-identified or otherwise. If you have transmedicalist viewpoints, they will not be tolerated here.\n\n", inline=False)
+        embed.add_field(name="8️⃣  Follow discord TOS", value="https://discordapp.com/terms \ne.g. Use of alternate accounts for malicious purposes\n", inline=False)
+        embed.add_field(name="9️⃣  Respect Plural Users", value="There are several members of this server who are plural (a term for two or more individuals living together in the same body,  https://pluralityresource.org/plurality-information/ for more information)\n Some of them use the <@466378653216014359> bot to help differentiate which person is speaking. \nTheir accounts will appear as bots, please be respectful and treat them as any other server member.\n No pluralphobia will be tolerated on this server, pluralphobes will be permanently banned.", inline=False)
+        await message.channel.send(embed=embed)
+        time.sleep(1)
+        embed = discord.Embed(title="Info", color=0xf1c40f)
+        embed.add_field(name="\U0001F517 Permanent server invite", value="https://discord.gg/TCDdbsh", inline=False)
+        embed.add_field(name="\U0001F512 Security and Data retention", value="This server uses <@!295329346590343168> for logging, any edited or deleted messages will be saved in a hidden channel, if you need any data removed from the server entirely, please contact a <@&699812268145115137>.\n\nBot source code can be found at https://github.com/MasterChief-John-117/GenericBot", inline=False)
+
+        await message.channel.send(embed=embed)
 
 
 
 client.run(os.environ['BOT_TOKEN'])
+
