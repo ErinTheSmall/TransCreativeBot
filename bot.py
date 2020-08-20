@@ -61,7 +61,7 @@ async def on_message(message):
 
         await message.channel.send(embed=embed)
 
-    if message.content.startswith('>roles'):
+    if message.content.startswith('>rules'):
         embed = discord.Embed(title="Rules", color=0xf1c40f)
         embed.add_field(name="1️⃣  Respect all members of the server", value="The goal is to keep the place as chill and polite as possible. Use common sense with what you say. The age old saying applies - treat others how you would like to be treated.\n\n", inline=False)
         embed.add_field(name="2️⃣  Don't be vitriolic", value="This means: keep toxicity out of the server, do not flame users individually or as a group, do not troll (as in posting things just to annoy others), do not harass, and do not make offensive/harsh statements. This includes racist, sexist, and cultural remarks designed to anger and hurt others.\n\n", inline=False)
