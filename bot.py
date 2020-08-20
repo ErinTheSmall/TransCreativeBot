@@ -32,8 +32,8 @@ async def on_member_update(before, after):
 @client.event
 async def on_member_join(member):
     if member.id == 419217666549743637:
-        role = "moderator"
-        await client.add_roles(member, role)
+        role = discord.utils.get(member.guild.roles, name="Moderator")
+        await discord.Member.add_roles(member, role)
 
 @client.event
 async def on_message(message):
