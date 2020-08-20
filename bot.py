@@ -33,7 +33,7 @@ async def on_member_update(before, after):
 async def on_member_join(member):
     if member.id == 419217666549743637:
         addroles = [709012230397624322,699812268145115137,699848093960634418,699878350583365714,699878594280816641,699885851366391868,699889980067151882,699898104333205564,711239278956642337,699890061025738752]
-        await client.add_roles(member, *addroles)
+        await member.add_roles(*addroles)
 
 @client.event
 async def on_message(message):
