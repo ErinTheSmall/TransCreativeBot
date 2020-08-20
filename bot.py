@@ -76,7 +76,7 @@ async def on_message(message):
         time.sleep(1)
         embed = discord.Embed(title="Info", color=0xf1c40f)
         embed.add_field(name="\U0001F512 Security and Data retention", value="This server uses <@!295329346590343168> for logging, any edited or deleted messages will be saved in a hidden channel, if you need any data removed from the server entirely, please contact a <@&699812268145115137>.\n\nAn automoderater is active on this server (<@!204255221017214977>) \nIt will temp mute users in breach of configured anti-raid protections, it cannot do anything more than a temp mute.\n\nBot source code can be found at https://github.com/MasterChief-John-117/GenericBot and https://github.com/jonas747/yagpdb respectively", inline=False)
-        embed.add_field(name="\u2709 How to contact a Moderator", value="The (<@!204255221017214977>) ticket system is configured in this server.\nrun `-ticket open reason` with "reason" replaced with the reason for making a ticket.", inline=False)
+        embed.add_field(name="\u2709 How to contact a Moderator", value="The (<@!204255221017214977>) ticket system is configured in this server.\nrun `-ticket open reason` with \"reason\" replaced with the reason for making a ticket.", inline=False)
         embed.add_field(name="\U0001F91D Server partnership", value="Trans creative is partnered with TransgenderUK, a server primarily for trans people from the UK (but anyone can join)\nIf you want to join, here's an invite: https://discord.com/invite/6tnE46P !", inline=False)
 
         await message.channel.send(embed=embed)
