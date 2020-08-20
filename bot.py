@@ -81,6 +81,9 @@ async def on_message(message):
 
         await message.channel.send(embed=embed)
 
-
+    if message.content.startswith('>changelog'):
+        embed = discord.Embed(title="Changelog", color=0xf1c40f)
+        embed.add_field(name="1️⃣  New rule: 9 - Respect Plural Users", value="A new rule has been added to respect our 0 tolerance policy on pluralphobia, see <#696454936942215183> for details", inline=False)
+        await message.channel.send(embed=embed)
 
 client.run(os.environ['BOT_TOKEN'])
