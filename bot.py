@@ -124,7 +124,7 @@ async def on_message(message):
            x = message.content()
            x  = x.split(' ')[1]
         except IndexError:
-           x = "See User Message
+           x = "See User Message"
         y = "cw: " + x + "\nAuthor: " + message.author()
         file = message.attachments[0]
         file.filename = f"SPOILER_{file.filename}"
