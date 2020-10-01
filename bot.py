@@ -120,10 +120,16 @@ async def on_message(message):
             await message.channel.send(embed=embed)
 
     if message.content.startswith('>spoiler'):
+        try:
+           x = message.content()
+           x  = x.split(' ')[1]
+        except IndexError:
+           x = "See User Message
+        y = "cw: " + x + "\nAuthor: " + message.author()
         file = message.attachments[0]
         file.filename = f"SPOILER_{file.filename}"
         spoiler = await file.to_file()
         await message.delete()
-        await message.channel.send(file=spoiler)
+        await message.channel.send(y + file=spoiler)
 
 client.run(os.environ['BOT_TOKEN'])
