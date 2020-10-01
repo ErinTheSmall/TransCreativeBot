@@ -120,5 +120,6 @@ async def on_message(message):
             await message.channel.send(embed=embed)
 
     if message.content.startswith('>spoiler'):
+        return
 
 client.run(os.environ['BOT_TOKEN'])
