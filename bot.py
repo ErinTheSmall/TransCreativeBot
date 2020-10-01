@@ -120,6 +120,9 @@ async def on_message(message):
             await message.channel.send(embed=embed)
 
     if message.content.startswith('>spoiler'):
-        return
+        file = ctx.message.attachments[0]
+        file.filename = f"SPOILER_{file.filename}"
+        spoiler = await file.to_file()
+        await archiver.send(file=spoiler)
 
 client.run(os.environ['BOT_TOKEN'])
