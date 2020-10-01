@@ -121,7 +121,7 @@ async def on_message(message):
 
     if message.content.startswith('>spoiler'):
         try:
-           x = message.content()
+           x = message.content
            x  = x.split(' ')[1]
         except IndexError:
            x = "See User Message"
