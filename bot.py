@@ -116,7 +116,7 @@ async def on_message(message):
     if message.author.id == 419217666549743637:
         if message.content.startswith('>changelog'):
             embed = discord.Embed(title="Changelog", color=0xf1c40f)
-            embed.add_field(name="1️⃣  New rule: 9 - Respect Plural Users", value="A new rule has been added to respect our 0 tolerance policy on pluralphobia, see <#696454936942215183> for details", inline=False)
+            embed.add_field(name="1️⃣  New Command: >spoiler", value="A new command has been added to <@!545997085535764515>\n, upload an image and send `>spoiler (content warning text)` in the same message without the (), the bot will spoiler the image for you!", inline=False)
             await message.channel.send(embed=embed)
 
     if message.content.startswith('>spoiler'):
