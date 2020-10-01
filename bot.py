@@ -123,6 +123,7 @@ async def on_message(message):
         file = message.attachments[0]
         file.filename = f"SPOILER_{file.filename}"
         spoiler = await file.to_file()
+        await message.delete()
         await message.channel.send(file=spoiler)
 
 client.run(os.environ['BOT_TOKEN'])
