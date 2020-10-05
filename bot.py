@@ -117,7 +117,7 @@ async def on_message(message):
         if message.content.startswith('>changelog'):
             embed = discord.Embed(title="Changelog", color=0xf1c40f)
             embed.add_field(name="1️⃣  New Channel: #trans-talk", value="<#762628665316999168> has been created to accomodate trans specific serious and no serious discussion.", inline=False)
-            embed.add_field(name="2️⃣  New Roles: channel opt-outs", value="no #food and no #trans-talk have been added to the role menu, react to these if you want to opt out of either channel.", inline=False)
+            embed.add_field(name="2️⃣  New Roles: channel opt-outs", value="<@&734945400699617342>  and <@&762736076586352690> have been added to the role menu, react to these if you want to opt out of either channel.", inline=False)
             await message.channel.send(embed=embed)
 
     if message.content.startswith('>spoiler'):
