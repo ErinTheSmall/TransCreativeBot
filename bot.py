@@ -4,8 +4,6 @@ import time
 
 client = discord.Client()
 
-command_prefix = ">"
-
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
@@ -68,7 +66,7 @@ async def on_message(message):
     if message.author == client.user:
         return
     if message.author.id == 419217666549743637:
-        if message.content.startswith('{}roles'.format(command_prefix)):
+        if message.content.startswith('>roles'):
             embed = discord.Embed(title="Identity Roles", color=0xfe817f)
             embed.add_field(name="React to this message to add roles", value="\U0001F1E6 <@&699897962431512658>\n\U0001F1E7 <@&699897995600068608>\n\U0001F1E8 <@&699898033013260308>\n\U0001F1E9 <@&699898067859538011>\n\U0001F1EA <@&699898104333205564>\n\U0001F1EB <@&699898136818090084>\n\U0001F1EC <@&699898190178287637>\n\nIf any roles are missing, ping a <@&699812268145115137> and they'll assign them for you", inline=False)
             await message.channel.send(embed=embed)
@@ -95,7 +93,7 @@ async def on_message(message):
             await message.channel.send(embed=embed)
             
     if message.author.id == 419217666549743637:
-        if message.content.startswith('{}rules'.format(command_prefix)):
+        if message.content.startswith('>rules'):
             embed = discord.Embed(title="Rules", color=0xf1c40f)
             embed.add_field(name="1️⃣  Respect all members of the server", value="The goal is to keep the place as chill and polite as possible. Use common sense with what you say. The age old saying applies - treat others how you would like to be treated.\n\n", inline=False)
             embed.add_field(name="2️⃣  Don't be vitriolic", value="This means: keep toxicity out of the server, do not flame users individually or as a group, do not troll (as in posting things just to annoy others), do not harass, and do not make offensive/harsh statements. This includes racist, sexist, and cultural remarks designed to anger and hurt others.\n\n", inline=False)
@@ -116,20 +114,18 @@ async def on_message(message):
             await message.channel.send(embed=embed)
             
     if message.author.id == 419217666549743637:
-        if message.content.startswith('{}changelog'.format(command_prefix)):
+        if message.content.startswith('>changelog'):
             embed = discord.Embed(title="Changelog", color=0xf1c40f)
-            embed.add_field(name="1️⃣  New Command: >spoiler", value="A new command has been added to <@!545997085535764515>\n, upload an image and send `>spoiler (content warning text)` in the same message without the (), the bot will spoiler the image for you!", inline=False)
+            embed.add_field(name="1️⃣  New Roles: channel opt-outs", value="no #food and no #trans-talk have been added to the role menu, react to these if you want to opt out of either channel.", inline=False)
             await message.channel.send(embed=embed)
 
-
-    if message.content.startswith('{}spoiler'.format(command_prefix)):
+    if message.content.startswith('>spoiler'):
         try:
            x = message.content
            x  = x.split(' ')[1]
         except IndexError:
            x = "See User Message"
         y = "cw: " + x + "\nAuthor: " + message.author.name
-
         file = message.attachments[0]
         file.filename = f"SPOILER_{file.filename}"
         spoiler = await file.to_file()
