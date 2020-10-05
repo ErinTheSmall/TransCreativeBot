@@ -116,6 +116,7 @@ async def on_message(message):
     if message.author.id == 419217666549743637:
         if message.content.startswith('>changelog'):
             embed = discord.Embed(title="Changelog", color=0xf1c40f)
+            embed.add_field(name="1️⃣  New Channel: <#762628665316999168>", value="<#762628665316999168> has been created to accomodate trans specific serious and no serious discussion.", inline=False)
             embed.add_field(name="1️⃣  New Roles: channel opt-outs", value="no #food and no #trans-talk have been added to the role menu, react to these if you want to opt out of either channel.", inline=False)
             await message.channel.send(embed=embed)
 
