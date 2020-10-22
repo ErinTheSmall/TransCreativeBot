@@ -104,7 +104,7 @@ async def on_message(message):
             embed.add_field(name="7️⃣  Please do not police the gender identities of others", value="This server is a safe space which fully accepts members of all Gender Identities. If you have transmedicalist or bioessentialist viewpoints, they will not be tolerated here.\n\n", inline=False)
             embed.add_field(name="8️⃣  Follow discord TOS", value="https://discordapp.com/terms \ne.g. Use of alternate accounts for malicious purposes\n", inline=False)
             embed.add_field(name="9️⃣  Respect Plural Users", value="There are several members of this server who are plural (a term for two or more individuals living together in the same body,  https://pluralityresource.org/plurality-information/ for more information)\n Some of them use the <@466378653216014359> bot to help differentiate which person is speaking. \nTheir accounts will appear as bots, please be respectful and treat them as any other server member.\n No pluralphobia will be tolerated on this server, pluralphobes will be permanently banned.", inline=False)
-            embed.add_field(name="10️⃣  Absolutely no Chasers", value="Chasers will be immediately and permanently banned, fetishising and harrasment of trans users is not tolerated here at all.\nIf any user Dm's you being creepy or threatening, please tell a <@&699812268145115137>.", inline=False)
+            embed.add_field(name="\U0001F51F Absolutely no Chasers", value="Chasers will be immediately and permanently banned, fetishising and harrasment of trans users is not tolerated here at all.\nIf any user Dm's you being creepy or threatening, please tell a <@&699812268145115137>.", inline=False)
 
             await message.channel.send(embed=embed)
             time.sleep(1)
