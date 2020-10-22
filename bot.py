@@ -72,11 +72,11 @@ async def on_message(message):
             await message.channel.send(embed=embed)
             time.sleep(0.5)
             embed = discord.Embed(title="Orientation Roles", color=0xffc86e)
-            embed.add_field(name="React to this message to add roles", value="\U0001F1E6 <@&699889869845168198>\n\U0001F1E7 <@&699889907212222535>\n\U0001F1E8 <@&699889940787494983>\n\U0001F1E9 <@&699889980067151882>\n\U0001F1EA <@&699890018658811964>\n\U0001F1EB <@&699890085969264680>\n\U0001F1EC <@&699890061025738752>\n\U0001F1ED <@&699890443718230016>\n\U0001F1EE <@&699890469810995260>\n\U0001F1EF <@&699890503944241202>\n\U0001F1F0 <@&699890541071958036>\n\U0001F1F1 <@&699890607317057590>\n\U0001F1F2 <@&699890646877601823>\n\U0001F1F3 <@&699890683066056744>\n\U0001F1F4 <@&712744400169730100>\n\U0001F1F5 <@&721393433276710961>\n\nIf your orientation(s) aren't listed, ping a <@&699812268145115137> and they'll assign them for you", inline=False)
+            embed.add_field(name="React to this message to add roles", value="\U0001F1E6 <@&699889869845168198>\n\U0001F1E7 <@&699889907212222535>\n\U0001F1E8 <@&699889940787494983>\n\U0001F1E9 <@&699889980067151882>\n\U0001F1EA <@&699890018658811964>\n\U0001F1EB <@&699890085969264680>\n\U0001F1EC <@&699890061025738752>\n\U0001F1ED <@&699890443718230016>\n\U0001F1EE <@&699890469810995260>\n\U0001F1EF <@&699890503944241202>\n\U0001F1F0 <@&699890541071958036>\n\U0001F1F1 <@&699890607317057590>\n\U0001F1F2 <@&699890646877601823>\n\U0001F1F3 <@&699890683066056744>\n\U0001F1F4 <@&712744400169730100>\n\U0001F1F5 <@&721393433276710961>\n\U0001F1F6 <@&734468187411710043>\nIf your orientation(s) aren't listed, ping a <@&699812268145115137> and they'll assign them for you", inline=False)
             await message.channel.send(embed=embed)
             time.sleep(1)
             embed = discord.Embed(title="Gender Identity Roles", color=0xffff61)
-            embed.add_field(name="React to this message to add roles", value="\U0001F1E6 <@&699885677256507402>\n\U0001F1E7 <@&699885751239835679>\n\U0001F1E8 <@&699885789042966558>\n\U0001F1E9 <@&699885851366391868>\n\U0001F1EA <@&699885897264398366>\n\U0001F1EB <@&699885931439849473>\n\U0001F1EC <@&699886147811147786>\n\U0001F1ED <@&699886187548246057>\n\U0001F1EE <@&699886232691408976>\n\U0001F1EF <@&699886265587335168>\n\nIf your gender(s) aren't listed, ping a <@&699812268145115137> and they'll assign them for you", inline=False)
+            embed.add_field(name="React to this message to add roles", value="\U0001F1E6 <@&699885677256507402>\n\U0001F1E7 <@&699885751239835679>\n\U0001F1E8 <@&699885789042966558>\n\U0001F1E9 <@&699885851366391868>\n\U0001F1EA <@&699885897264398366>\n\U0001F1EB <@&699885931439849473>\n\U0001F1EC <@&699886147811147786>\n\U0001F1ED <@&699886187548246057>\n\U0001F1EE <@&699886232691408976>\n\U0001F1EF <@&699886265587335168>\n\U0001F1F0 <@&766684553594667039>\n\U0001F1F1 <@&766971952719855618>\n\U0001F1F2 <@&766684282545504256>\n\U0001F1F3 <@&766684436582367322>\nIf your gender(s) aren't listed, ping a <@&699812268145115137> and they'll assign them for you", inline=False)
             await message.channel.send(embed=embed)
             time.sleep(1)
             embed = discord.Embed(title="Pronoun Roles", color=0x7cfb88)
@@ -101,9 +101,11 @@ async def on_message(message):
             embed.add_field(name="4️⃣  No NSFW content", value="This includes suggestive or nude selfies or other pornography. Please message the moderators before posting questionable artwork.\n\n", inline=False)
             embed.add_field(name="5️⃣  Demonstrate a willingness to learn", value="This is a safe space. Anyone can make a mistake and accidentally say something hurtful or triggering. If you find yourself corrected for making this error, please try to learn from it. This is not a place to tell people that they need to reclaim a pejorative so you can use it, that they should laugh at jokes about them, or that they otherwise just \"shouldn't be so sensitive.\" For lightly moderated LGBT-related discussion, we recommend /r/ainbow. /r/ainbow does not moderate discussion, but the community will expect that you treat them with respect. (From /r/LGBT).\n\n", inline=False)
             embed.add_field(name="6️⃣  Respect the privacy of others", value="Do not seek personal identifying information which includes names, photos, emails, etc., whether it's your personal info or someone else's. Information like this should not be posted.\n\n", inline=False)
-            embed.add_field(name="7️⃣  Please do not police the gender identities of others", value="This server is a safe space which fully accepts members of all Gender Identities, self-identified or otherwise. If you have transmedicalist viewpoints, they will not be tolerated here.\n\n", inline=False)
+            embed.add_field(name="7️⃣  Please do not police the gender identities of others", value="This server is a safe space which fully accepts members of all Gender Identities. If you have transmedicalist or bioessentialist viewpoints, they will not be tolerated here.\n\n", inline=False)
             embed.add_field(name="8️⃣  Follow discord TOS", value="https://discordapp.com/terms \ne.g. Use of alternate accounts for malicious purposes\n", inline=False)
             embed.add_field(name="9️⃣  Respect Plural Users", value="There are several members of this server who are plural (a term for two or more individuals living together in the same body,  https://pluralityresource.org/plurality-information/ for more information)\n Some of them use the <@466378653216014359> bot to help differentiate which person is speaking. \nTheir accounts will appear as bots, please be respectful and treat them as any other server member.\n No pluralphobia will be tolerated on this server, pluralphobes will be permanently banned.", inline=False)
+            embed.add_field(name="10️⃣  Absolutely no Chasers", value="Chasers will be immediately and permanently banned, fetishising and harrasment of trans users is not tolerated here at all.\nIf any user Dm's you being creepy or threatening, please tell a <@&699812268145115137>.", inline=False)
+
             await message.channel.send(embed=embed)
             time.sleep(1)
             embed = discord.Embed(title="Info", color=0xf1c40f)
@@ -116,8 +118,11 @@ async def on_message(message):
     if message.author.id == 419217666549743637:
         if message.content.startswith('>changelog'):
             embed = discord.Embed(title="Changelog", color=0xf1c40f)
-            embed.add_field(name="1️⃣  New Channel: #trans-talk", value="<#762628665316999168> has been created to accomodate trans specific serious and non serious discussion.", inline=False)
-            embed.add_field(name="2️⃣  New Roles: channel opt-outs", value="<@&734945400699617342>  and <@&762736076586352690> have been added to the role menu, react to these if you want to opt out of either channel.", inline=False)
+            embed.add_field(name="1️⃣  New Channel: #politics", value="<#768904994367602718> has been created to contain political discussion.\nThe channel is opt-in via a role in <#699844445318807574>.\nAll political discussion must go in this channel, all server rules still apply in this channel.", inline=False)
+            embed.add_field(name="2️⃣  New Roles: politics opt-in role", value="See above.", inline=False)
+            embed.add_field(name="3️⃣  New Rule: NO Chasers", value="Because Fuck chasers. They're not welcome here and never will be.", inline=False)
+            embed.add_field(name="4️⃣  New Roles: New Identity roles requested by users", value="<@&766971952719855618>, <@&766684282545504256>, <@&766684553594667039>, <@&766684436582367322>, <@&734468187411710043>", inline=False)
+
             await message.channel.send(embed=embed)
 
     if message.content.startswith('>spoiler'):
