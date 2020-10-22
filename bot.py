@@ -88,7 +88,7 @@ async def on_message(message):
             await message.channel.send(embed=embed)
             time.sleep(1)
             embed = discord.Embed(title="Misc Roles", color=0xdb7ffe)
-            embed.add_field(name="React to this message to add roles", value="\U0001F1E6 <@&711239368504770600>\n\U0001F1E7 <@&711239278956642337>\n\U0001F1E8 <@&711239427158179930>\n\U0001F1E9 <@&733610027432149022>\n\U0001F1EA <@&762736076586352690>\n\U0001F1EB <@&734945400699617342>\n\nYou need to have been in the server for a few hours to assign the <@&733610027432149022> role", inline=False)
+            embed.add_field(name="React to this message to add roles", value="\U0001F1E6 <@&711239368504770600>\n\U0001F1E7 <@&711239278956642337>\n\U0001F1E8 <@&711239427158179930>\n\U0001F1E9 <@&733610027432149022>\n\U0001F1EA <@&762736076586352690>\n\U0001F1EB <@&734945400699617342>\n\U0001F1EC <@&768905152807567452>\n\nYou need to have been in the server for a few hours to assign the <@&733610027432149022> role", inline=False)
 
             await message.channel.send(embed=embed)
             
