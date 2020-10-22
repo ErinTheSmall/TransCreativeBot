@@ -76,7 +76,7 @@ async def on_message(message):
             await message.channel.send(embed=embed)
             time.sleep(1)
             embed = discord.Embed(title="Gender Identity Roles", color=0xffff61)
-            embed.add_field(name="React to this message to add roles", value="\U0001F1E6 <@&699885677256507402>\n\U0001F1E7 <@&699885751239835679>\n\U0001F1E8 <@&699885789042966558>\n\U0001F1E9 <@&699885851366391868>\n\U0001F1EA <@&699885897264398366>\n\U0001F1EB <@&699885931439849473>\n\U0001F1EC <@&699886147811147786>\n\U0001F1ED <@&699886187548246057>\n\U0001F1EE <@&699886232691408976>\n\U0001F1EF <@&699886265587335168>\n\U0001F1F0 <@&766684553594667039>\n\U0001F1F1 <@&766971952719855618>\n\U0001F1F2 <@&766684282545504256>\n\U0001F1F3 <@&766684436582367322>\nIf your gender(s) aren't listed, ping a <@&699812268145115137> and they'll assign them for you", inline=False)
+            embed.add_field(name="React to this message to add roles", value="\U0001F1E6 <@&699885677256507402>\n\U0001F1E7 <@&699885751239835679>\n\U0001F1E8 <@&699885789042966558>\n\U0001F1E9 <@&699885851366391868>\n\U0001F1EA <@&699885897264398366>\n\U0001F1EB <@&699885931439849473>\n\U0001F1EC <@&699886147811147786>\n\U0001F1ED <@&699886187548246057>\n\U0001F1EE <@&699886232691408976>\n\U0001F1EF <@&699886265587335168>\n\U0001F1F0 <@&766684553594667039>\n\U0001F1F1 <@&766971952719855618>\n\U0001F1F2 <@&766684282545504256>\n\U0001F1F3 <@&766684436582367322>\n\U0001F1F4 <@&768930342937165864>\n\U0001F1F5 <@&766685258879860777>\nIf your gender(s) aren't listed, ping a <@&699812268145115137> and they'll assign them for you", inline=False)
             await message.channel.send(embed=embed)
             time.sleep(1)
             embed = discord.Embed(title="Pronoun Roles", color=0x7cfb88)
@@ -121,7 +121,7 @@ async def on_message(message):
             embed.add_field(name="1️⃣  New Channel: #politics", value="<#768904994367602718> has been created to contain political discussion.\nThe channel is opt-in via a role in <#699844445318807574>.\nAll political discussion must go in this channel, all server rules still apply in this channel.", inline=False)
             embed.add_field(name="2️⃣  New Roles: politics opt-in role", value="See above.", inline=False)
             embed.add_field(name="3️⃣  New Rule: NO Chasers", value="Because Fuck chasers. They're not welcome here and never will be.", inline=False)
-            embed.add_field(name="4️⃣  New Roles: New Identity roles requested by users", value="<@&766971952719855618>, <@&766684282545504256>, <@&766684553594667039>, <@&766684436582367322>, <@&734468187411710043>", inline=False)
+            embed.add_field(name="4️⃣  New Roles: New Identity roles requested by users", value="<@&766971952719855618>, <@&766684282545504256>, <@&766684553594667039>, <@&766684436582367322>, <@&734468187411710043>, <@&766685258879860777>, <@&768930342937165864>.", inline=False)
 
             await message.channel.send(embed=embed)
 
