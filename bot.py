@@ -9,7 +9,7 @@ Hailey = ["Moderator","Visible Moderator","cutie","pink","she/her","Female","Pan
 Erin = ["Moderator","Visible Moderator","mango","they/them","she/her","Non-Binary","Pansexual","Asexual","Panromantic","Queer","Lesbian","Plural","DM's open","User"]
 Moderators =	{
   339541537690222612 : "Hailey",
-  419217666549743637 : "Erin,
+  419217666549743637 : "Erin",
 }
 
 client = discord.Client(intents=intents)
