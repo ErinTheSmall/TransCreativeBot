@@ -1,15 +1,18 @@
 import discord
 import os
 import time
+intents = discord.Intents.default()
+intents.members = True
+intents.presences = True
 
-HaileyRoles = ["Moderator","Visible Moderator","cutie","Pink","she/her","Female","Pansexual","Transgender","Dm's open","User"]
-ErinRoles = ["Moderator","Visible Moderator","mango","they/them","she/her","Non-Binary","Pansexual","Asexual","Panromantic","Queer","Lesbian","Plural","Dm's open","User"]
+HaileyRoles = ["Moderator","Visible Moderator","cutie","pink","she/her","Female","Pansexual","Transgender","DM's open","User"]
+ErinRoles = ["Moderator","Visible Moderator","mango","they/them","she/her","Non-Binary","Pansexual","Asexual","Panromantic","Queer","Lesbian","Plural","DM's open","User"]
 Moderators =	{
   339541537690222612 : "HaileyRoles",
   419217666549743637 : "ErinRoles",
 }
 
-client = discord.Client()
+client = discord.Client(intents=intents)
 
 @client.event
 async def on_ready():
@@ -42,7 +45,6 @@ async def on_member_update(before, after):
 async def on_member_join(member):
     await client.wait_until_ready()
     if member.id in Moderators:
-        print("Mod detected uwu");
         Mod = Moderators[member.id]
         for i in eval(Mod):
             role = discord.utils.get(member.guild.roles, name=i)
