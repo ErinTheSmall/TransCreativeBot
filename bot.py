@@ -2,6 +2,13 @@ import discord
 import os
 import time
 
+HaileyRoles = ["Moderator","Visible Moderator","cutie","Pink","she/her","Female","Pansexual","Transgender","Dm's open","User"]
+ErinRoles = ["Moderator","Visible Moderator","mango","they/them","she/her","Non-Binary","Pansexual","Asexual","Panromantic","Queer","Lesbian","Plural","Dm's open","User"]
+Moderators =	{
+  339541537690222612 : "HaileyRoles",
+  419217666549743637 : "ErinRoles",
+}
+
 client = discord.Client()
 
 @client.event
@@ -29,37 +36,17 @@ async def on_member_update(before, after):
             embed.set_footer(text=str(member) + " is the " + str(membercount) + " member!")
             channel = client.get_channel(710294117959335947)
             await channel.send(embed=embed)
+
+            
 @client.event
 async def on_member_join(member):
-    if member.id == 419217666549743637:
-        role = discord.utils.get(member.guild.roles, name="Moderator")
-        await discord.Member.add_roles(member, role)
-        role = discord.utils.get(member.guild.roles, name="mango")
-        await discord.Member.add_roles(member, role)
-        role = discord.utils.get(member.guild.roles, name="they/them")
-        await discord.Member.add_roles(member, role)
-        role = discord.utils.get(member.guild.roles, name="she/her")
-        await discord.Member.add_roles(member, role)
-        role = discord.utils.get(member.guild.roles, name="Non-Binary")
-        await discord.Member.add_roles(member, role)
-        role = discord.utils.get(member.guild.roles, name="Pansexual")
-        await discord.Member.add_roles(member, role)
-        role = discord.utils.get(member.guild.roles, name="Asexual")
-        await discord.Member.add_roles(member, role)
-        role = discord.utils.get(member.guild.roles, name="Panromantic")
-        await discord.Member.add_roles(member, role)
-        role = discord.utils.get(member.guild.roles, name="Queer")
-        await discord.Member.add_roles(member, role)
-        role = discord.utils.get(member.guild.roles, name="Lesbian")
-        await discord.Member.add_roles(member, role)
-        role = discord.utils.get(member.guild.roles, name="Plural")
-        await discord.Member.add_roles(member, role)
-        role = discord.utils.get(member.guild.roles, name="DM's open")
-        await discord.Member.add_roles(member, role)
-        role = discord.utils.get(member.guild.roles, name="selfies")
-        await discord.Member.add_roles(member, role)
-        role = discord.utils.get(member.guild.roles, name="verified")
-        await discord.Member.add_roles(member, role)
+    if member.id in Moderators:
+        print("Mod detected uwu");
+        Mod = Moderators[member.id]
+        for i in eval(Mod):
+            role = discord.utils.get(member.guild.roles, name=i)
+            await discord.Member.add_roles(member, role)
+
 
 @client.event
 async def on_message(message):
