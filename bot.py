@@ -40,6 +40,7 @@ async def on_member_update(before, after):
             
 @client.event
 async def on_member_join(member):
+    await client.wait_until_ready()
     if member.id in Moderators:
         print("Mod detected uwu");
         Mod = Moderators[member.id]
