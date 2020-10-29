@@ -2,8 +2,8 @@ import discord
 import os
 import time
 
-HaileyRoles = ["Moderator","Visible Moderator","cutie","Pink","she/her","Female","Pansexual","Transgender","Dm's open","User"]
-ErinRoles = ["Moderator","Visible Moderator","mango","they/them","she/her","Non-Binary","Pansexual","Asexual","Panromantic","Queer","Lesbian","Plural","Dm's open","User"]
+HaileyRoles = ["Moderator","Visible Moderator","cutie","Pink","she/her","Female","Pansexual","Transgender","Dms open","User"]
+ErinRoles = ["Moderator","Visible Moderator","mango","they/them","she/her","Non-Binary","Pansexual","Asexual","Panromantic","Queer","Lesbian","Plural","Dms open","User"]
 Moderators =	{
   339541537690222612 : "HaileyRoles",
   419217666549743637 : "ErinRoles",
