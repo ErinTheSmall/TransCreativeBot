@@ -47,6 +47,7 @@ async def on_member_join(member):
         for i in eval(Mod):
             role = discord.utils.get(member.guild.roles, name=i)
             await discord.Member.add_roles(member, role)
+            time.sleep(0.5)
 
 
 @client.event
