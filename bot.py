@@ -5,8 +5,8 @@ intents = discord.Intents.default()
 intents.members = True
 intents.presences = True
 
-Hailey = ["Moderator","Visible Moderator","cutie","pink","she/her","Female","Pansexual","Transgender","DM's open","User"]
-Erin = ["Moderator","Visible Moderator","mango","they/them","she/her","Non-Binary","Pansexual","Asexual","Panromantic","Queer","Lesbian","Plural","DM's open","User"]
+Hailey = ["Moderator","Moderator Permissions","cutie","pink","she/her","Female","Pansexual","Transgender","DM's open","User"]
+Erin = ["Moderator","Moderator Permissions","mango","they/them","she/her","Non-Binary","Pansexual","Asexual","Panromantic","Queer","Lesbian","Plural","DM's open","User"]
 Moderators =	{
   339541537690222612 : "Hailey",
   419217666549743637 : "Erin",
