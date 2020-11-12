@@ -120,8 +120,8 @@ async def on_message(message):
 
     if message.content.startswith('>spoiler'):
         try:
-           x = message.content
-           x  = x.split(">spoiler")[1]
+            x = message.content
+            x  = x.split(">spoiler")[1]
             try:
                 x = x.lstrip();
             except:
