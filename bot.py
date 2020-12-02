@@ -58,7 +58,7 @@ async def on_member_join(member):
 async def on_message(message):
     if message.author == client.user:
         return
-    if message.author.id == 419217666549743637:
+    if message.author.id in Moderators:
         if message.content.startswith('>roles'):
             embed = discord.Embed(title="Identity Roles", color=0xfe817f)
             embed.add_field(name="React to this message to add roles", value="\U0001F1E6 <@&699897962431512658>\n\U0001F1E7 <@&699897995600068608>\n\U0001F1E8 <@&699898033013260308>\n\U0001F1E9 <@&699898067859538011>\n\U0001F1EA <@&699898104333205564>\n\U0001F1EB <@&699898136818090084>\n\U0001F1EC <@&699898190178287637>\n\nIf any roles are missing, ping a <@&699812268145115137> and they'll assign them for you", inline=False)
@@ -85,7 +85,7 @@ async def on_message(message):
 
             await message.channel.send(embed=embed)
             
-    if message.author.id == 419217666549743637:
+    if message.author.id in Moderators:
         if message.content.startswith('>rules'):
             embed = discord.Embed(title="Rules", color=0xf1c40f)
             embed.add_field(name="1️⃣  Respect all members of the server", value="The goal is to keep the place as chill and polite as possible. Use common sense with what you say. The age old saying applies - treat others how you would like to be treated.\n\n", inline=False)
@@ -108,7 +108,7 @@ async def on_message(message):
 
             await message.channel.send(embed=embed)
             
-    if message.author.id == 419217666549743637:
+    if message.author.id in Moderators:
         if message.content.startswith('>changelog'):
             embed = discord.Embed(title="Changelog", color=0xf1c40f)
             embed.add_field(name="1️⃣  New Channel: #politics", value="<#768904994367602718> has been created to contain political discussion.\nThe channel is opt-in via a role in <#699844445318807574>.\nAll political discussion must go in this channel, all server rules still apply in this channel.", inline=False)
