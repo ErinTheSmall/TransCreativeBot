@@ -26,7 +26,6 @@ async def on_ready():
 async def on_member_update(before, after):
     if len(before.roles) < len(after.roles):
         new_role = next(role for role in after.roles if role not in before.roles)
-        print(new_role);
         if new_role.id == 699814532327145590:
             member = after
             pfp = member.avatar_url
@@ -57,7 +56,8 @@ async def on_member_join(member):
         embed=discord.Embed(title="Welcome to Trans Creative!", color=0xf1c40f)
         embed.set_author(name="Hello,"+member.name, icon_url="https://cdn.discordapp.com/emojis/395628346379206656.png")
         embed.set_thumbnail(url="https://cdn.discordapp.com/icons/696454936942215181/a_d6e6ce8869cbd20f83051542629f94c0.gif")
-        embed.set_footer(text="account created on "+str(member.joined_at))
+        difference = datetime.now - member.joined_at
+        embed.set_footer(text="account created on "+str(difference))
         channel = client.get_channel(699814426869760119)
         await channel.send(embed=embed)
         
