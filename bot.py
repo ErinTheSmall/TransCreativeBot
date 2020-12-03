@@ -57,10 +57,7 @@ async def on_member_join(member):
         embed=discord.Embed(title="Welcome to Trans Creative!", color=0xf1c40f)
         embed.set_author(name="Hello,"+member.name, icon_url="https://cdn.discordapp.com/emojis/395628346379206656.png")
         embed.set_thumbnail(url="https://cdn.discordapp.com/icons/696454936942215181/a_d6e6ce8869cbd20f83051542629f94c0.gif")
-        d0 = member.joined_at
-        d1 = datetime.date.today()
-        delta = d1 - d0
-        embed.set_footer(text="account created "+delta.days+" ago")
+        embed.set_footer(text="account created on "+member.joined_at+)
         channel = client.get_channel(699814426869760119)
         await channel.send(embed=embed)
         
