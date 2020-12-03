@@ -1,7 +1,7 @@
 import discord
 import os
 import time
-import datetime
+from datetime import datetime
 intents = discord.Intents.default()
 intents.members = True
 intents.presences = True
@@ -12,6 +12,21 @@ Moderators =	{
   339541537690222612 : "Hailey",
   419217666549743637 : "Erin",
 }
+
+from string import Template
+
+class DeltaTemplate(Template):
+    delimiter = "%"
+
+def strfdelta(tdelta, fmt):
+    d = {"D": tdelta.days}
+    hours, rem = divmod(tdelta.seconds, 3600)
+    minutes, seconds = divmod(rem, 60)
+    d["H"] = '{:02d}'.format(hours)
+    d["M"] = '{:02d}'.format(minutes)
+    d["S"] = '{:02d}'.format(seconds)
+    t = DeltaTemplate(fmt)
+    return t.substitute(**d)
 
 client = discord.Client(intents=intents)
 
@@ -56,8 +71,9 @@ async def on_member_join(member):
         embed=discord.Embed(title="Welcome to Trans Creative!", color=0xf1c40f)
         embed.set_author(name="Hello,"+member.name, icon_url="https://cdn.discordapp.com/emojis/395628346379206656.png")
         embed.set_thumbnail(url="https://cdn.discordapp.com/icons/696454936942215181/a_d6e6ce8869cbd20f83051542629f94c0.gif")
-        difference = datetime.datetime.now() - member.joined_at
-        embed.set_footer(text="account created on "+str(difference))
+        difference = datetime.now() - member.joined_at
+        strfdelta(difference), '%H:%M:%S')
+        embed.set_footer(text="account age: "+str(difference))
         channel = client.get_channel(699814426869760119)
         await channel.send(embed=embed)
         
