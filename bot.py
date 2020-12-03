@@ -19,7 +19,7 @@ client = discord.Client(intents=intents)
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
-    print(client.guilds);
+    print(client.guilds)
 
 
 #welcome message handling
@@ -57,8 +57,8 @@ async def on_member_join(member):
         embed=discord.Embed(title="Welcome to Trans Creative!", color=0xf1c40f)
         embed.set_author(name="Hello,"+member.name, icon_url="https://cdn.discordapp.com/emojis/395628346379206656.png")
         embed.set_thumbnail(url="https://cdn.discordapp.com/icons/696454936942215181/a_d6e6ce8869cbd20f83051542629f94c0.gif")
-        print(datetime.now)
-        print(member.joined_at)
+        print(str(datetime.now))
+        print(str(member.joined_at))
         difference = member.joined_at - datetime.now()
         embed.set_footer(text="account age: ")
         channel = client.get_channel(699814426869760119)
