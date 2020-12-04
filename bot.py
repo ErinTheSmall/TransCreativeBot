@@ -57,7 +57,7 @@ async def on_member_join(member):
         embed=discord.Embed(title="Welcome to Trans Creative!", color=0xf1c40f)
         embed.set_author(name="Hello,"+member.name, icon_url="https://cdn.discordapp.com/emojis/395628346379206656.png")
         embed.set_thumbnail(url="https://cdn.discordapp.com/icons/696454936942215181/a_d6e6ce8869cbd20f83051542629f94c0.gif")
-        difference = datetime.now() - date_entry
+        difference = datetime.now() - member.created_at
         seconds = int(difference.total_seconds())
         if seconds > 3600:
             hours = round(seconds / 3600)
