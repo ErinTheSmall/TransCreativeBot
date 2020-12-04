@@ -7,7 +7,7 @@ intents.members = True
 intents.presences = True
 
 Hailey = ["Moderator","Moderator Permissions","cutie","pink","she/her","Female","Pansexual","Transgender","DM's open","User"]
-Erin = ["Moderator","Moderator Permissions","mango","they/them","she/her","Non-Binary","Pansexual","Asexual","Panromantic","Queer","Lesbian","Plural","DM's open","User"]
+Erin = ["Moderator","Moderator Permissions","mango","they/them","she/her","Polyamorous","Non-Binary","Pansexual","Asexual","Panromantic","Queer","Lesbian","Plural","DM's open","User"]
 Moderators =	{
   339541537690222612 : "Hailey",
   419217666549743637 : "Erin",
@@ -57,8 +57,17 @@ async def on_member_join(member):
         embed=discord.Embed(title="Welcome to Trans Creative!", color=0xf1c40f)
         embed.set_author(name="Hello,"+member.name, icon_url="https://cdn.discordapp.com/emojis/395628346379206656.png")
         embed.set_thumbnail(url="https://cdn.discordapp.com/icons/696454936942215181/a_d6e6ce8869cbd20f83051542629f94c0.gif")
-        difference = datetime.now() - member.created_at
-        embed.set_footer(text="account age: "+str(difference))
+        difference = datetime.now() - date_entry
+        seconds = int(difference.total_seconds())
+        if seconds > 3600:
+            hours = round(seconds / 3600)
+            if hours > 24:
+                age = str(difference.days)+"d"
+            else:
+                age = str(hours)+"h"
+        else:
+            age = str(round(seconds / 60))+"m"
+        embed.set_footer(text="account age: "+age)
         channel = client.get_channel(699814426869760119)
         await channel.send(embed=embed)
         
