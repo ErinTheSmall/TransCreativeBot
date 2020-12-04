@@ -13,6 +13,22 @@ Moderators =	{
   419217666549743637 : "Erin",
 }
 
+def date_difference(date1,date2):
+    def is_plural(number):
+        pluralify = "s" if round(number) > 1 else ""
+        return pluralify
+    difference = date2 - date1
+    print(difference.days)
+    if difference.days >= 365:
+        return str(round(difference.days / 365)) + " year{s}".format(s = is_plural(difference.days / 365))
+    elif difference.days >= 30:
+        return str(round(difference.days / 30)) + " month{s}".format(s = is_plural(difference.days / 30))
+    elif difference.days >= 1:
+        return str(difference.days) + " day{s}".format(s = is_plural(difference.days))
+    elif difference.seconds >= 3600:
+        return str(round(difference.seconds / 3600)) + " hour{s}".format(s = is_plural(difference.seconds / 3600))
+    else:
+        return str(round(difference.seconds / 60)) + " minute{s}".format(s = is_plural(difference.seconds / 60))
 
 client = discord.Client(intents=intents)
 
@@ -57,17 +73,7 @@ async def on_member_join(member):
         embed=discord.Embed(title="Welcome to Trans Creative!", color=0xf1c40f)
         embed.set_author(name="Hello,"+member.name, icon_url="https://cdn.discordapp.com/emojis/395628346379206656.png")
         embed.set_thumbnail(url="https://cdn.discordapp.com/icons/696454936942215181/a_d6e6ce8869cbd20f83051542629f94c0.gif")
-        difference = datetime.now() - member.created_at
-        seconds = int(difference.total_seconds())
-        if seconds > 3600:
-            hours = round(seconds / 3600)
-            if hours > 24:
-                age = str(difference.days)+"d"
-            else:
-                age = str(hours)+"h"
-        else:
-            age = str(round(seconds / 60))+"m"
-        embed.set_footer(text="account age: "+age)
+        embed.set_footer(text=f"erin#7493 - {date_difference(member.created_at,datetime.now())} old")
         channel = client.get_channel(699814426869760119)
         await channel.send(embed=embed)
         
