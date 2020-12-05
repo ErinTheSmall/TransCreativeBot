@@ -1,4 +1,4 @@
-import discord
+iimport discord
 import os
 import time
 from datetime import datetime
@@ -14,22 +14,15 @@ Moderators =	{
 }
 
 def date_difference(date1,date2):
-    def is_plural(number):
-        pluralify = "s" if round(number) > 1 else ""
-        return pluralify
     difference = date2 - date1
-    print(difference.days)
-    if difference.days >= 365:
-        return str(round(difference.days / 365)) + " year{s}".format(s = is_plural(difference.days / 365))
-    elif difference.days >= 30:
-        return str(round(difference.days / 30)) + " month{s}".format(s = is_plural(difference.days / 30))
-    elif difference.days >= 1:
-        return str(difference.days) + " day{s}".format(s = is_plural(difference.days))
-    elif difference.seconds >= 3600:
-        return str(round(difference.seconds / 3600)) + " hour{s}".format(s = is_plural(difference.seconds / 3600))
-    else:
-        return str(round(difference.seconds / 60)) + " minute{s}".format(s = is_plural(difference.seconds / 60))
-
+    dividers = [365,30,1,3600,60]
+    strings = [" year{s}"," month{s}"," day{s}"," hour{s}"," minute{s}"]
+    for x,y,z in zip(range(5),dividers,strings):
+        if x >= 3: x = difference.seconds
+        else: x = difference.days
+        if x >= y:
+            return str(round(x / y)) + z.format(s = "s" if round(x / y) > 1 else "")
+        
 client = discord.Client(intents=intents)
 
 @client.event
@@ -74,6 +67,7 @@ async def on_member_join(member):
         embed.set_author(name="Hello,"+member.name, icon_url="https://cdn.discordapp.com/emojis/395628346379206656.png")
         embed.set_thumbnail(url="https://cdn.discordapp.com/icons/696454936942215181/a_d6e6ce8869cbd20f83051542629f94c0.gif")
         embed.set_footer(icon_url=member.avatar_url, text= member.name+"#"+member.discriminator + f" - {date_difference(member.created_at,datetime.now())} old")
+        embed.add_field(name="1️⃣  Respect all members of the server", value="", inline=False)
         channel = client.get_channel(699814426869760119)
         await channel.send(embed=embed)
         
