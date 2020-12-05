@@ -1,4 +1,4 @@
-iimport discord
+import discord
 import os
 import time
 from datetime import datetime
