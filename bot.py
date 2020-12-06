@@ -1,6 +1,7 @@
 import discord
 import os
 import time
+import csv
 from datetime import datetime
 intents = discord.Intents.default()
 intents.members = True
@@ -13,6 +14,10 @@ Moderators =	{
   419217666549743637 : "Erin",
 }
 
+numbermotes = ["1️⃣ ","2️⃣ ","3️⃣ ","4️⃣ ","5️⃣ ","6️⃣ ","7️⃣ ","8️⃣ ","9️⃣ ","\U0001F51F"]
+lettermotes = ["\U0001F1E6","\U0001F1E7","\U0001F1E8","\U0001F1E9","\U0001F1EA","\U0001F1EB","\U0001F1EC","\U0001F1ED","\U0001F1EE","\U0001F1EF","\U0001F1F0","\U0001F1F1","\U0001F1F2","\U0001F1F3","\U0001F1F4","\U0001F1F5","\U0001F1F6","\U0001F1F7","\U0001F1F8","\U0001F1F9","\U0001F1FA","\U0001F1FB","\U0001F1FC","\U0001F1FD","\U0001F1FE","\U0001F1FF"]
+
+
 def date_difference(date1,date2):
     difference = date2 - date1
     dividers = [365,30,1,3600,60]
@@ -22,7 +27,18 @@ def date_difference(date1,date2):
         else: x = difference.days
         if x >= y:
             return str(round(x / y)) + z.format(s = "s" if round(x / y) > 1 else "")
-        
+
+def storage_reader(file):
+    outputarray = []
+    data = list(csv.reader(open(file, "r")))
+    for x in range(len(data)):
+            for y in range(len(data[x])):
+                if x == 0:
+                    outputarray.append([])
+                nested_list = outputarray[y]
+                nested_list.append(data[x][y])
+    return outputarray
+
 client = discord.Client(intents=intents)
 
 @client.event
@@ -63,11 +79,11 @@ async def on_member_join(member):
             await discord.Member.add_roles(member, role)
     else:
         joinedDate = member.joined_at
-        embed=discord.Embed(title="Welcome to Trans Creative!", color=0xf1c40f)
+        embed=discord.Embed(title="Welcome to Trans Creative!", description="To access the rest of the server, please follow the instructions below:", color=0xf1c40f)
         embed.set_author(name="Hello,"+member.name, icon_url="https://cdn.discordapp.com/emojis/395628346379206656.png")
         embed.set_thumbnail(url="https://cdn.discordapp.com/icons/696454936942215181/a_d6e6ce8869cbd20f83051542629f94c0.gif")
         embed.set_footer(icon_url=member.avatar_url, text= member.name+"#"+member.discriminator + f" - {date_difference(member.created_at,datetime.now())} old")
-        embed.add_field(name="1️⃣  Respect all members of the server", value="", inline=False)
+        embed.add_field(name="1️⃣  Read the bot message", value="The bot should have sent you a direct message.\nIf you didn't recieve a message, a moderator will be here to help soon!", inline=True)
         channel = client.get_channel(699814426869760119)
         await channel.send(embed=embed)
         
@@ -105,30 +121,25 @@ async def on_message(message):
 
             await message.channel.send(embed=embed)
             
-    if message.author.id in Moderators:
+
         if message.content.startswith('>rules'):
             embed = discord.Embed(title="Rules", color=0xf1c40f)
-            embed.add_field(name="1️⃣  Respect all members of the server", value="The goal is to keep the place as chill and polite as possible. Use common sense with what you say. The age old saying applies - treat others how you would like to be treated.\n\n", inline=False)
-            embed.add_field(name="2️⃣  Don't be vitriolic", value="This means: keep toxicity out of the server, do not flame users individually or as a group, do not troll (as in posting things just to annoy others), do not harass, and do not make offensive/harsh statements. This includes racist, sexist, and cultural remarks designed to anger and hurt others.\n\n", inline=False)
-            embed.add_field(name="3️⃣  No homophobia, transphobia or bigotry", value="We are welcoming to all of the LGBT community, this means no TERFs or any other radical transphobic/homophobic groups.\n\n", inline=False)
-            embed.add_field(name="4️⃣  No NSFW content", value="This includes suggestive or nude selfies or other pornography. Please message the moderators before posting questionable artwork.\n\n", inline=False)
-            embed.add_field(name="5️⃣  Demonstrate a willingness to learn", value="This is a safe space. Anyone can make a mistake and accidentally say something hurtful or triggering. If you find yourself corrected for making this error, please try to learn from it. This is not a place to tell people that they need to reclaim a pejorative so you can use it, that they should laugh at jokes about them, or that they otherwise just \"shouldn't be so sensitive.\" For lightly moderated LGBT-related discussion, we recommend /r/ainbow. /r/ainbow does not moderate discussion, but the community will expect that you treat them with respect. (From /r/LGBT).\n\n", inline=False)
-            embed.add_field(name="6️⃣  Respect the privacy of others", value="Do not seek personal identifying information which includes names, photos, emails, etc., whether it's your personal info or someone else's. Information like this should not be posted.\n\n", inline=False)
-            embed.add_field(name="7️⃣  Please do not police the gender identities of others", value="This server is a safe space which fully accepts members of all Gender Identities. If you have transmedicalist or bioessentialist viewpoints, they will not be tolerated here.\n\n", inline=False)
-            embed.add_field(name="8️⃣  Follow discord TOS", value="https://discordapp.com/terms \ne.g. Use of alternate accounts for malicious purposes\n", inline=False)
-            embed.add_field(name="9️⃣  Respect Plural Users", value="There are several members of this server who are plural (a term for two or more individuals living together in the same body,  https://pluralityresource.org/plurality-information/ for more information)\n Some of them use the <@466378653216014359> bot to help differentiate which person is speaking. \nTheir accounts will appear as bots, please be respectful and treat them as any other server member.\n No pluralphobia will be tolerated on this server, pluralphobes will be permanently banned.", inline=False)
-            embed.add_field(name="\U0001F51F Absolutely no Chasers", value="Chasers will be immediately and permanently banned, fetishising and harrasment of trans users is not tolerated here at all.\nIf any user Dm's you being creepy or threatening, please tell a <@&699812268145115137>.", inline=False)
-
+            x = 0
+            rules = storage_reader("data/rules.csv")
+            for i in rules[0]:
+                embed.add_field(name=numbermotes[x] + rules[0][x], value=rules[1][x] + "\n\n", inline=False)
+                x += 1
             await message.channel.send(embed=embed)
             time.sleep(1)
             embed = discord.Embed(title="Info", color=0xf1c40f)
-            embed.add_field(name="\U0001F512 Security and Data retention", value="This server uses <@!295329346590343168> for logging, any edited or deleted messages will be saved in a hidden channel, if you need any data removed from the server entirely, please contact a <@&699812268145115137>.\n\nAn automoderater is active on this server (<@!204255221017214977>) \nIt will temp mute users in breach of configured anti-raid protections, it cannot do anything more than a temp mute.\n\nBot source code can be found at https://github.com/MasterChief-John-117/GenericBot and https://github.com/jonas747/yagpdb respectively", inline=False)
-            embed.add_field(name="\u2709 How to contact a Moderator", value="The (<@!204255221017214977>) ticket system is configured in this server.\nrun `-ticket open reason` with \"reason\" replaced with the reason for making a ticket.\n\nSending a DM to a <@&699812268145115137> is okay too, but a ticket is preferable.", inline=False)
-            embed.add_field(name="\U0001F91D Server partnership", value="Trans creative is partnered with TransgenderUK, a server primarily for trans people from the UK (but anyone can join)\nIf you want to join, here's an invite: https://discord.com/invite/6tnE46P !", inline=False)
-
+            x = 0
+            info = storage_reader("data/info.csv")
+            for i in info[0]:
+                embed.add_field(name=info[0][x], value=info[1][x] + "\n\n", inline=False)
+                x += 1
             await message.channel.send(embed=embed)
             
-    if message.author.id in Moderators:
+
         if message.content.startswith('>changelog'):
             embed = discord.Embed(title="Changelog", color=0xf1c40f)
             embed.add_field(name="1️⃣  New Channel: #politics", value="<#768904994367602718> has been created to contain political discussion.\nThe channel is opt-in via a role in <#699844445318807574>.\nAll political discussion must go in this channel, all server rules still apply in this channel.", inline=False)
