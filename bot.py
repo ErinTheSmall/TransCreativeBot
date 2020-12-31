@@ -142,11 +142,7 @@ async def on_message(message):
 
         if message.content.startswith('>changelog'):
             embed = discord.Embed(title="Changelog", color=0xf1c40f)
-            embed.add_field(name="1️⃣  New Channel: #politics", value="<#768904994367602718> has been created to contain political discussion.\nThe channel is opt-in via a role in <#699844445318807574>.\nAll political discussion must go in this channel, all server rules still apply in this channel.", inline=False)
-            embed.add_field(name="2️⃣  New Roles: politics opt-in role", value="See above.", inline=False)
-            embed.add_field(name="3️⃣  New Rule: NO Chasers", value="Because Fuck chasers. They're not welcome here and never will be.", inline=False)
-            embed.add_field(name="4️⃣  New Roles: New Identity roles requested by users", value="<@&766971952719855618>, <@&766684282545504256>, <@&766684553594667039>, <@&766684436582367322>, <@&734468187411710043>, <@&766685258879860777>, <@&768930342937165864>.", inline=False)
-
+            embed.add_field(name="1️⃣  New year: 2021", value="Updated year to 2021, I hope y'all have a better year and everyone is safe and happy, thank you for all making this server great c:", inline=False)
             await message.channel.send(embed=embed)
 
     if message.content.startswith('>spoiler'):
