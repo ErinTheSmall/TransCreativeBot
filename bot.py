@@ -109,7 +109,7 @@ async def on_message(message):
             await message.channel.send(embed=embed)
             time.sleep(1)
             embed = discord.Embed(title="Pronoun Roles", color=0x7cfb88)
-            embed.add_field(name="React to this message to add roles", value="\U0001F1E6 <@&699878300842983525>\n\U0001F1E7 <@&699878594280816641>\n\U0001F1E8 <@&699878350583365714>\n\U0001F1E9 <@&699880196706140190>\n\U0001F1EA <@&699878641500291072>\n\U0001F1EB <@&699878743463952474>\n\U0001F1EC <@&699878808546705468>\n\U0001F1ED <@&699878835457359934>\n\U0001F1EE <@&699878930999541780>\n\U0001F1EF <@&699878974033231912>\n\U0001F1F0 <@&700133237216772196>\n\U0001F1F1 <@&709408864012992553>\n\U0001F1F2 <@&700131772469477436>\n\nIf your pronouns aren't listed, ping a <@&699812268145115137> and they'll assign them for you", inline=False)
+            embed.add_field(name="React to this message to add roles", value="\U0001F1E6 <@&699878300842983525>\n\U0001F1E7 <@&699878594280816641>\n\U0001F1E8 <@&699878350583365714>\n\U0001F1E9 <@&699880196706140190>\n\U0001F1EA <@&699878641500291072>\n\U0001F1EB <@&699878743463952474>\n\U0001F1EC <@&699878808546705468>\n\U0001F1ED <@&699878835457359934>\n\U0001F1EE <@&699878930999541780>\n\U0001F1EF <@&699878974033231912>\n\U0001F1F0 <@&700133237216772196>\n\U0001F1F1 <@&709408864012992553>\n\U0001F1F2 <@&700131772469477436>\n\U0001F1F3 <@&774456768771391498>\nIf your pronouns aren't listed, ping a <@&699812268145115137> and they'll assign them for you", inline=False)
             await message.channel.send(embed=embed)
             time.sleep(1)
             embed = discord.Embed(title="Colour Roles", color=0x74b2ff)
