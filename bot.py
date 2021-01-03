@@ -153,7 +153,7 @@ async def on_message(message):
             
         if message.content.startswith('>botinfo'):
             embed = discord.Embed(title="Command Info", color=0xf1c40f)
-            embed.add_field(name="⚠️ Spoiler command ⚠️", value="Send:\n```yaml\n>spoiler \(contentwarninghere\)```\nAlong with your image file to spoiler the image.\nThis command allows mobile users to spoiler images.", inline=False)
+            embed.add_field(name="⚠️ Spoiler command ⚠️", value="Send this command:\n```yaml\n>spoiler (contentwarninghere)```Along with your image file to spoiler the image.\nThis command allows mobile users to spoiler images.", inline=False)
             embed.add_field(name="2️⃣  New Pronoun Role(s)", value="Added: vey/Vem", inline=False)
             embed.add_field(name="3️⃣  New Gender Role(s)", value="Added: Genderpunk, Demiboy", inline=False)
             embed.add_field(name="4️⃣  New Role Category(s)", value="Added: Continent Roles", inline=False)
