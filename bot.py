@@ -101,11 +101,11 @@ async def on_message(message):
             await message.channel.send(embed=embed)
             time.sleep(0.5)
             embed = discord.Embed(title="Orientation Roles", color=0xef7528)
-            embed.add_field(name="React to this message to add roles", value="\U0001F1E6 <@&699889869845168198>\n\U0001F1E7 <@&699889907212222535>\n\U0001F1E8 <@&699889940787494983>\n\U0001F1E9 <@&699889980067151882>\n\U0001F1EA <@&699890018658811964>\n\U0001F1EB <@&699890085969264680>\n\U0001F1EC <@&699890061025738752>\n\U0001F1ED <@&699890443718230016>\n\U0001F1EE <@&699890469810995260>\n\U0001F1EF <@&699890503944241202>\n\U0001F1F0 <@&699890541071958036>\n\U0001F1F1 <@&699890607317057590>\n\U0001F1F2 <@&699890646877601823>\n\U0001F1F3 <@&699890683066056744>\n\U0001F1F4 <@&712744400169730100>\n\U0001F1F5 <@&721393433276710961>\n\U0001F1F6 <@&734468187411710043>\nIf your orientation(s) aren't listed, ping a <@&699812268145115137> and they'll assign them for you", inline=False)
+            embed.add_field(name="React to this message to add roles", value="\U0001F1E6 <@&699889869845168198>\n\U0001F1E7 <@&699889907212222535>\n\U0001F1E8 <@&699889940787494983>\n\U0001F1E9 <@&699889980067151882>\n\U0001F1EA <@&699890018658811964>\n\U0001F1EB <@&699890085969264680>\n\U0001F1EC <@&699890061025738752>\n\U0001F1ED <@&699890443718230016>\n\U0001F1EE <@&699890469810995260>\n\U0001F1EF <@&699890503944241202>\n\U0001F1F0 <@&699890541071958036>\n\U0001F1F1 <@&699890607317057590>\n\U0001F1F2 <@&699890646877601823>\n\U0001F1F3 <@&699890683066056744>\n\U0001F1F4 <@&712744400169730100>\n\U0001F1F5 <@&721393433276710961>\n\U0001F1F6 <@&734468187411710043>\n\U0001F1F7 <@&782389274833322004>\nIf your orientation(s) aren't listed, ping a <@&699812268145115137> and they'll assign them for you", inline=False)
             await message.channel.send(embed=embed)
             time.sleep(1)
             embed = discord.Embed(title="Gender Identity Roles", color=0xff9b57)
-            embed.add_field(name="React to this message to add roles", value="\U0001F1E6 <@&699885677256507402>\n\U0001F1E7 <@&699885751239835679>\n\U0001F1E8 <@&699885789042966558>\n\U0001F1E9 <@&699885851366391868>\n\U0001F1EA <@&699885897264398366>\n\U0001F1EB <@&699885931439849473>\n\U0001F1EC <@&699886147811147786>\n\U0001F1ED <@&699886187548246057>\n\U0001F1EE <@&699886232691408976>\n\U0001F1EF <@&699886265587335168>\n\U0001F1F0 <@&766684553594667039>\n\U0001F1F1 <@&766971952719855618>\n\U0001F1F2 <@&766684282545504256>\n\U0001F1F3 <@&766684436582367322>\n\U0001F1F4 <@&768930342937165864>\n\U0001F1F5 <@&766685258879860777>\n\U0001F1F6 <@&771966534062833664>\n\U0001F1F7 <@&782389274833322004>\n\U0001F1F8 <@&788565283220488212>\nIf your gender(s) aren't listed, ping a <@&699812268145115137> and they'll assign them for you", inline=False)
+            embed.add_field(name="React to this message to add roles", value="\U0001F1E6 <@&699885677256507402>\n\U0001F1E7 <@&699885751239835679>\n\U0001F1E8 <@&699885789042966558>\n\U0001F1E9 <@&699885851366391868>\n\U0001F1EA <@&699885897264398366>\n\U0001F1EB <@&699885931439849473>\n\U0001F1EC <@&699886147811147786>\n\U0001F1ED <@&699886187548246057>\n\U0001F1EE <@&699886232691408976>\n\U0001F1EF <@&699886265587335168>\n\U0001F1F0 <@&766684553594667039>\n\U0001F1F1 <@&766971952719855618>\n\U0001F1F2 <@&766684282545504256>\n\U0001F1F3 <@&766684436582367322>\n\U0001F1F4 <@&768930342937165864>\n\U0001F1F5 <@&766685258879860777>\n\U0001F1F6 <@&771966534062833664>\n\U0001F1F7 <@&788565283220488212>\nIf your gender(s) aren't listed, ping a <@&699812268145115137> and they'll assign them for you", inline=False)
             await message.channel.send(embed=embed)
             time.sleep(1)
             embed = discord.Embed(title="Pronoun Roles", color=0xfffffe)
@@ -145,7 +145,10 @@ async def on_message(message):
 
         if message.content.startswith('>changelog'):
             embed = discord.Embed(title="Changelog", color=0xf1c40f)
-            embed.add_field(name="1️⃣  New year: 2021", value="Updated year to 2021, I hope y'all have a better year and everyone is safe and happy, thank you for all making this server great c:", inline=False)
+            embed.add_field(name="1️⃣  New Orientation Role(s)", value="Added: Venusic", inline=False)
+            embed.add_field(name="2️⃣  New Pronoun Role(s)", value="Added: vey/Vem", inline=False)
+            embed.add_field(name="3️⃣  New Gender Role(s)", value="Added: Genderpunk, Demiboy", inline=False)
+            embed.add_field(name="4️⃣  New Role Category(s)", value="Added: Continent Roles", inline=False)
             await message.channel.send(embed=embed)
 
     if message.content.startswith('>spoiler'):
