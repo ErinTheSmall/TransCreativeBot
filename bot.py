@@ -1,11 +1,17 @@
 import discord
+import asyncio
+import hashlib
 import os
 import time
 import csv
+import vt
 from datetime import datetime
+vtclient = vt.Client(os.environ['VT_KEY'])
 intents = discord.Intents.default()
 intents.members = True
 intents.presences = True
+
+headers = {"User-Agent": "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.3"}
 
 Hailey = ["Moderator","Moderator Permissions","cutie","pink","she/her","Female","Pansexual","Transgender","DM's open","User"]
 Erin = ["Moderator","Moderator Permissions","mango","they/them","she/her","Polyamorous","Non-Binary","Pansexual","Asexual","Panromantic","Queer","Lesbian","Plural","DM's open","User"]
@@ -14,6 +20,7 @@ Moderators =	{
   419217666549743637 : "Erin",
 }
 
+embedformats = [".jpg",".jpeg",".JPG",".JPEG",".png",".PNG",".gif",".gifv",".webm",".mp4",".wav",".mp3",".ogg",".mov",".flac"]
 numbermotes = ["1️⃣ ","2️⃣ ","3️⃣ ","4️⃣ ","5️⃣ ","6️⃣ ","7️⃣ ","8️⃣ ","9️⃣ ","\U0001F51F"]
 lettermotes = ["\U0001F1E6","\U0001F1E7","\U0001F1E8","\U0001F1E9","\U0001F1EA","\U0001F1EB","\U0001F1EC","\U0001F1ED","\U0001F1EE","\U0001F1EF","\U0001F1F0","\U0001F1F1","\U0001F1F2","\U0001F1F3","\U0001F1F4","\U0001F1F5","\U0001F1F6","\U0001F1F7","\U0001F1F8","\U0001F1F9","\U0001F1FA","\U0001F1FB","\U0001F1FC","\U0001F1FD","\U0001F1FE","\U0001F1FF"]
 
@@ -38,6 +45,18 @@ def storage_reader(file):
                 nested_list = outputarray[y]
                 nested_list.append(data[x][y])
     return outputarray
+
+async def virus_scan(file):
+    print("virus scan started")
+    await file.save("filebuffer/"+file.filename)
+    with open("filebuffer/"+file.filename, "rb") as f:
+        analysis = await vtclient.scan_file_async(f, wait_for_completion=True)
+    with open("filebuffer/"+file.filename,"rb") as f:
+        bytes = f.read()
+        readable_hash = hashlib.sha1(bytes).hexdigest();
+    os.remove("filebuffer/"+file.filename)
+    urlresult = await vtclient.get_object_async("/files/"+readable_hash)
+    return urlresult
 
 client = discord.Client(intents=intents)
 
@@ -86,9 +105,6 @@ async def on_member_join(member):
         embed.add_field(name="1️⃣  Read the bot message", value="The bot should have sent you a direct message.\nIf you didn't recieve a message, a moderator will be here to help soon!", inline=True)
         channel = client.get_channel(699814426869760119)
         await channel.send(embed=embed)
-        
-            
-
 
 @client.event
 async def on_message(message):
@@ -123,7 +139,6 @@ async def on_message(message):
             embed = discord.Embed(title="Misc Roles", color=0xa30262)
             embed.add_field(name="React to this message to add roles", value="\U0001F1E6 <@&711239368504770600>\n\U0001F1E7 <@&711239278956642337>\n\U0001F1E8 <@&711239427158179930>\n\U0001F1E9 <@&733610027432149022>\n\U0001F1EA <@&762736076586352690>\n\U0001F1EB <@&734945400699617342>\n\U0001F1EC <@&768905152807567452>\n\nYou need to have been in the server for a few hours to assign the <@&733610027432149022> role", inline=False)
             await message.channel.send(embed=embed)
-            
 
         if message.content.startswith('>rules'):
             embed = discord.Embed(title="Rules", color=0xf1c40f)
@@ -155,7 +170,7 @@ async def on_message(message):
             embed = discord.Embed(title="Command Info", color=0xf1c40f)
             embed.add_field(name="⚠️ Spoiler command ⚠️", value="Send this command:\n```yaml\n>spoiler ExampleText```Along with your image file to spoiler the image.\nThis command allows mobile users to spoiler images.", inline=False)
             await message.channel.send(embed=embed)
-
+    
     if message.content.startswith('>spoiler'):
         try:
             x = message.content
@@ -170,7 +185,41 @@ async def on_message(message):
         file = message.attachments[0]
         file.filename = f"SPOILER_{file.filename}"
         spoiler = await file.to_file()
-        await message.delete()
         await message.channel.send(y,file=spoiler)
+        await message.delete()
+
+    if message.attachments:
+        print("attachment detected uwu")
+        tasks = []
+        scanfiles = []
+        for i in message.attachments:
+            if i.filename.endswith(tuple(embedformats)):
+                pass
+            else:
+                scanfiles.append(i)
+                tasks.append(virus_scan(i))
+                scanresults = await asyncio.gather(*tasks)
+                Malicious = False
+                Suspicious = False
+                for index,item in enumerate(scanresults):
+                    if item.last_analysis_stats.get("malicious") > 1:
+                        Malicious = True
+                    elif item.last_analysis_stats.get("suspicious") > 1:
+                        Suspicious = True
+                if Malicious:
+                    statuscolour = 0xde2a42
+                    status = "\n\U0001F6D1 **Potentially Malicious** \U0001F6D1\n"
+                elif Suspicious:
+                    statuscolour = 0xffcd4c
+                    status = "\n\u26a0\ufe0f **Suspicious** \u26a0\ufe0f\n"
+                else:
+                    statuscolour = 0x79b553
+                    status = "\n\u2705 **Probably Safe** \u2705\n"
+                embed = discord.Embed(title="Malware Scan", color=statuscolour)
+                for index,item in enumerate(scanresults):
+                    embed.add_field(name=scanfiles[index].filename+"\n", value=status+"\nMalware: "+str(item.last_analysis_stats.get("malicious"))+" \U0001F6D1  Suspicious: "+str(item.last_analysis_stats.get("suspicious"))+" \u26a0\ufe0f  Clean: "+str(item.last_analysis_stats.get("undetected"))+" \u2705\n[Virustotal results 🔗](https://www.virustotal.com/gui/file/"+str(item.id)+"/detection)", inline=False)   
+                await message.reply(embed=embed, mention_author=False)
+        
+        
 
 client.run(os.environ['BOT_TOKEN'])
