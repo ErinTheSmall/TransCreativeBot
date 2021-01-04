@@ -47,7 +47,6 @@ def storage_reader(file):
     return outputarray
 
 async def virus_scan(file):
-    print("virus scan started")
     await file.save("filebuffer/"+file.filename)
     with open("filebuffer/"+file.filename, "rb") as f:
         analysis = await vtclient.scan_file_async(f, wait_for_completion=True)
@@ -189,7 +188,7 @@ async def on_message(message):
         await message.delete()
 
     if message.attachments:
-        print("attachment detected uwu")
+
         tasks = []
         scanfiles = []
         for i in message.attachments:
