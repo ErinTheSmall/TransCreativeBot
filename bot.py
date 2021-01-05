@@ -193,31 +193,28 @@ async def on_message(message):
         scanfiles = []
         for i in message.attachments:
             if i.filename.endswith(tuple(embedformats)):
-                pass
+                break
             else:
                 scanfiles.append(i)
+        else:
+            for i in scanfiles:
                 tasks.append(virus_scan(i))
-                scanresults = await asyncio.gather(*tasks)
-                Malicious = False
-                Suspicious = False
-                for index,item in enumerate(scanresults):
-                    if item.last_analysis_stats.get("malicious") > 1:
-                        Malicious = True
-                    elif item.last_analysis_stats.get("suspicious") > 1:
-                        Suspicious = True
-                if Malicious:
+            scanresults = await asyncio.gather(*tasks)
+            statuscolour = 0x79b553
+            status = "\n\u2705 **Probably Safe** \u2705\n"
+            for index,item in enumerate(scanresults):
+                if item.last_analysis_stats.get("malicious") > 1:
                     statuscolour = 0xde2a42
                     status = "\n\U0001F6D1 **Potentially Malicious** \U0001F6D1\n"
-                elif Suspicious:
+                    break
+                elif item.last_analysis_stats.get("suspicious") > 1:
                     statuscolour = 0xffcd4c
                     status = "\n\u26a0\ufe0f **Suspicious** \u26a0\ufe0f\n"
-                else:
-                    statuscolour = 0x79b553
-                    status = "\n\u2705 **Probably Safe** \u2705\n"
-                embed = discord.Embed(title="Malware Scan", color=statuscolour)
-                for index,item in enumerate(scanresults):
-                    embed.add_field(name=scanfiles[index].filename+"\n", value=status+"\nMalware: "+str(item.last_analysis_stats.get("malicious"))+" \U0001F6D1  Suspicious: "+str(item.last_analysis_stats.get("suspicious"))+" \u26a0\ufe0f  Clean: "+str(item.last_analysis_stats.get("undetected"))+" \u2705\n[Virustotal results 🔗](https://www.virustotal.com/gui/file/"+str(item.id)+"/detection)", inline=False)   
-                await message.reply(embed=embed, mention_author=False)
+                    break
+            embed = discord.Embed(title="Malware Scan", color=statuscolour)
+            for index,item in enumerate(scanresults):
+                embed.add_field(name=scanfiles[index].filename+"\n", value=status+"\nMalware: "+str(item.last_analysis_stats.get("malicious"))+" \U0001F6D1  Suspicious: "+str(item.last_analysis_stats.get("suspicious"))+" \u26a0\ufe0f  Clean: "+str(item.last_analysis_stats.get("undetected"))+" \u2705\n[Virustotal results 🔗](https://www.virustotal.com/gui/file/"+str(item.id)+"/detection)", inline=False)   
+            await message.reply(embed=embed, mention_author=False)
         
         
 
