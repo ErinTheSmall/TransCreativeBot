@@ -156,7 +156,7 @@ async def on_message(message):
             
 
         if message.content.startswith('>changelog'):
-            embed = discord.Embed(title="Changelog", color=0xf1c40f)
+            embed = discord.Embed(title="Candidates", color=0xf1c40f)
             embed.add_field(name="Rain", value="<@!265927622796640257> - Hiya, Rain here. I think I would be a good mod for a couple of reasons: 1. Experience: I modded TransgenderUK for just over a year and learned a lot about how to handle medium-sized servers eg conflict resolution, providing features, making experience enjoyable. 2. Interpersonal skills: wow, I would not used to have said this about myself. But basically I seem to be good at judging the needs of various people and balancing them out to find a workable solution. I’m also pretty outgoing and enjoy making new friends in spaces where I feel comfortable. 3. I love it here: speaking of comfort! I have always wanted a place like this where I can talk about xenogenders and writing and my new interest in fursonas. I think that love of a space is helpful in maintaining motivation for moderating but also I just really want to help make sure this space stays awesome and active : ) Hope you’ll consider me for one of your votes ^.^", inline=False)
             embed.add_field(name="Sarah", value="<@!167750737714085888> - I think I could do verifying users and managing channels, emoji, &c", inline=False)
             embed.add_field(name="Alice", value="<@!128910740277952512> - no comment provided (which is valid!)", inline=False)
