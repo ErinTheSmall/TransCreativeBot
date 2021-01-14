@@ -157,10 +157,11 @@ async def on_message(message):
 
         if message.content.startswith('>changelog'):
             embed = discord.Embed(title="Changelog", color=0xf1c40f)
-            embed.add_field(name="1️⃣  New Orientation Role(s)", value="Added: Venusic", inline=False)
-            embed.add_field(name="2️⃣  New Pronoun Role(s)", value="Added: vey/Vem", inline=False)
-            embed.add_field(name="3️⃣  New Gender Role(s)", value="Added: Genderpunk, Demiboy", inline=False)
-            embed.add_field(name="4️⃣  New Role Category(s)", value="Added: Continent Roles", inline=False)
+            embed.add_field(name="<@!265927622796640257>", value="Hiya, Rain here. I think I would be a good mod for a couple of reasons: 1. Experience: I modded TransgenderUK for just over a year and learned a lot about how to handle medium-sized servers eg conflict resolution, providing features, making experience enjoyable. 2. Interpersonal skills: wow, I would not used to have said this about myself. But basically I seem to be good at judging the needs of various people and balancing them out to find a workable solution. I’m also pretty outgoing and enjoy making new friends in spaces where I feel comfortable. 3. I love it here: speaking of comfort! I have always wanted a place like this where I can talk about xenogenders and writing and my new interest in fursonas. I think that love of a space is helpful in maintaining motivation for moderating but also I just really want to help make sure this space stays awesome and active : ) Hope you’ll consider me for one of your votes ^.^", inline=False)
+            embed.add_field(name="<@!167750737714085888>", value="I think I could do verifying users and managing channels, emoji, &c", inline=False)
+            embed.add_field(name="<@!128910740277952512>", value="no comment provided (which is valid!)", inline=False)
+            embed.add_field(name="<@!334338435483566080>", value="Hiya, just in case y'all don't know me, I'm Alexandra Phaelyx. Most folks call me Phae, although Lexi is also a perfect cromluent shortening :) I have experience in moderarating spaces such as these, and would love to help keep this place the nice, safe and wholesome space that Erin has created where we can share our creative endevours, ecourage and lift each other up and be a comfort when needed :)", inline=False)
+            embed.add_field(name="<@360700905223487500>", value="Uhh hi! I'm Sol, I'm 19, I use he, they and it pronouns and I think I'd be a good mod cause idk I'm cool and stuff. I've got some experience moderating, tho none this size, and I'm ready to step up. The community here fuckin slaps and I'd love to represent y'all by being a mod.", inline=False)
             await message.channel.send(embed=embed)
             
         if message.content.startswith('>botinfo'):
